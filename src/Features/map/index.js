@@ -1,25 +1,58 @@
 import React from 'react';
-import Player from '../Player/';
+import {TILE_SIZE} from '../../config/constants';
+import './styles.css';
 
+function getTileDisplay(type) {
+    switch(type) {
+        case 4:
+            return 'tree';
+        case 5:
+            return 'chest';
+        case 8:
+            return 'tree';
+        case 9:
+            return 'rock';
+        default:
+            return 'path';
+    }
+}
 function Map(props) {
     return (
-        <div
-            style={{
-                width: '800px',
-                height: '400px',
-                backgroundColor: 'black',
-                border: '4px solid white',
-            }}
-        />
+        <div style={{
+            position: 'absolute',
+        }}>
+            {
+                props.tiles.map((row, y) =>
+                    <div
+                        key={y}
+                        className='row'
+                        style={{
+                            height: `${TILE_SIZE}px`,
+                            lineHeight: `${TILE_SIZE}px`,
+                        }}
+                    >
+                        { row.map((tile, x) =>
+                            <div
+                                key={x}
+                                className={`tile ${getTileDisplay(tile)}`}
+                                style={{
+                                    width: `${TILE_SIZE}px`,
+                                    height: `${TILE_SIZE}px`,
+                                }}
+                            />) }
+                    </div>
+                )
+            }
+        </div>
     )
 }
 
-function mathQuestion() {
-    prompt('What is 2 + 2?');
-}
+// function mathQuestion() {
+//     prompt('What is 2 + 2?');
+// }
 
-if(Player){
-    window.addEventListener('position', mathQuestion);
-}
+// if(Player){
+//     window.addEventListener('position', mathQuestion);
+// }
 
 export default Map;

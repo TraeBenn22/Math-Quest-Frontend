@@ -1,24 +1,54 @@
 import React from 'react';
-import {Component} from 'react';
+import { connect } from 'react-redux';
 import handleMovement from './Features/movement'
-import map from './Features/map/';
+import Map from './Features/map/';
 import Player from './Features/Player/'
+import tiles from './maps/2';
 import {MAP_HEIGHT, MAP_WIDTH} from './config/constants'
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-        <div style={{
-            height: MAP_HEIGHT,
-            width: MAP_WIDTH,
-        }}
-        >
-          <map />
-          <Player />
-        </div>
-    )
-  }
+
+
+function mapStateToProps(state) {
+    return {
+        tiles: state.map.tiles
+    }
 }
 
-export default handleMovement(App);
+function mapDispatchToProps(dispatch) {
+    return {
+        addTiles: (tiles) => {
+            dispatch({type: "ADD_TILES", payload: tiles})
+        }
+    }
+}
+
+function App(props) {
+    props.addTiles(tiles);
+    return(
+        <div className="map"
+             style={{
+                 height: MAP_HEIGHT,
+                 width: MAP_WIDTH,
+             }}
+             > <Map tiles={props.tiles} />
+             <Player/>
+        </div>
+    )
+}
+// class App extends Component {
+//   render() {
+//     return (
+//         <div style={{
+//             height: MAP_HEIGHT,
+//             width: MAP_WIDTH,
+//         }}
+//         >
+//           <map />
+//           <Player />
+//         </div>
+//     )
+//   }
+// }
+
+export default connect(mapStateToProps, mapDispatchToProps)(handleMovement(App))
