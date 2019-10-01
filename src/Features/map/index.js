@@ -2,8 +2,26 @@ import React from 'react';
 import {TILE_SIZE} from '../../config/constants';
 import './styles.css';
 
+function battleQuestions() {
+    let text;
+    let choice = prompt("What is the difference of 10 and 8?");
+    switch(choice) {
+        case 2:
+            text = "Correct! you defeated the monster!";
+            break;
+        case -2:
+            text = "so lcose";
+            break;
+        default:
+            text ="Oh no! You managed to dodge the hit, but probably not the next one";
+            break;
+    }
+}
+
 function getTileDisplay(type) {
     switch(type) {
+        case 1:
+            return 'monster';
         case 4:
             return 'tree';
         case 5:

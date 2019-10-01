@@ -16,6 +16,10 @@
     background-image: url('./tiles/chest.png');
     background-color: transparent;
 }
+.monster {
+    background-image: url('./tiles/monster image1.png');
+    background-color: transparent;
+}
 
 .path {
 }

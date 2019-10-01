@@ -28,6 +28,7 @@ function respectObstructions(oldPos, newPos) {
 
 function handleDirectionMove(e, direction) {
     const state = store.getState();
+    console.log(state);
     store.dispatch({
         type: "MOVE_PLAYER",
         payload: {
