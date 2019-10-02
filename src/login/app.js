@@ -5,6 +5,7 @@ import Login from './components/auth/login';
 import LoginProvider from './components/auth/context';
 import '../login.css';
 
+
 const Read = props => {
     return (
         <Auth capability="read">
@@ -24,8 +25,9 @@ const Update = props => {
 class App extends React.Component {
     render() {
         return (
-            <LoginProvider>
-                <Login />
+            <LoginProvider >
+                <head>MATH QUEST</head>
+                <Login  />
                 <hr />
                 <Read />
                 <Update />

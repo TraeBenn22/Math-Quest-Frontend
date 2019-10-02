@@ -1,3 +1,9 @@
+header {
+    font-family: 'MedievalSharp', cursive;
+    color: white;
+
+}
+
 form {
 display: block;
 width: 150px;
@@ -7,8 +13,10 @@ line-height: 30px;
 color: white;
 font-weight: bold;
 text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-family: 'MedievalSharp', cursive;
 }
 .login {
+    font-family: 'MedievalSharp', cursive;
     display: block;
     width: 150px;
     margin: 0 auto;

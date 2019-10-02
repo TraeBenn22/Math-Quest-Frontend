@@ -33,6 +33,7 @@ class Login extends React.Component {
 
                 <If condition={!this.context.loggedIn}>
                     <form>
+                        <header>MATH QUEST</header>
                         <input
                             placeholder="UserName"
                             name="username"
