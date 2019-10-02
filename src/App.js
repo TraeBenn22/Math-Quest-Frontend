@@ -36,19 +36,5 @@ function App(props) {
         </div>
     )
 }
-// class App extends Component {
-//   render() {
-//     return (
-//         <div style={{
-//             height: MAP_HEIGHT,
-//             width: MAP_WIDTH,
-//         }}
-//         >
-//           <map />
-//           <Player />
-//         </div>
-//     )
-//   }
-// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(handleMovement(App))
