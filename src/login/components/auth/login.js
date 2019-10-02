@@ -44,8 +44,8 @@ class Login extends React.Component {
                             type="password"
                             onChange={this.handleChange}
                         />
-                        <button onClick={(e) => this.handleSubmit(e, 'signin')}>Sign In</button>
-                        <button onClick={(e) => this.handleSubmit(e, 'signup')}>Sign Up</button>
+                        <button className={'login'} onClick={(e) => this.handleSubmit(e, 'signin')}>Sign In</button>
+                        <button className={'login'} onClick={(e) => this.handleSubmit(e, 'signup')}>Sign Up</button>
                     </form>
                 </If>
             </>
