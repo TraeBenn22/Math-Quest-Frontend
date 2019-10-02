@@ -35,8 +35,6 @@ function renderModel(props) {
     switch(props.type) {
         case 'FIGHT':
             return <FightModel />;
-        default:
-            return;
     }
 
 }

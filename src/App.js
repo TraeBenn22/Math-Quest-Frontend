@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import handleMovement from './Features/movement'
 import Player from './Features/Player'
 import Map from './Features/map/'
-import Model from './Features/model'
+import Model from './model'
 import map from './maps/stuff'
 
 import { MAP_HEIGHT, MAP_WIDTH } from './config/constants'
