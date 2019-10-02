@@ -1,21 +1,21 @@
-import store from '../../config/store';
-import { TILE_SIZE, MAP_HEIGHT, MAP_WIDTH } from '../../config/constants';
+import store from '../../config/store'
+import { TILE_SIZE, MAP_HEIGHT, MAP_WIDTH } from '../../config/constants'
+
+function randomFight() {
+    const fightChance = Math.random() * 10;
+    if( fightChance > 9) store.dispatch({
+        type: 'SHOW_MODEL',
+        payload: {
+            type: 'FIGHT'
+        }
+    })
+}
 
 function respectBoundaries(oldPos, newPos) {
     return newPos[0] >= 0 &&
         newPos[0] <= MAP_WIDTH - TILE_SIZE &&
         newPos[1] >= 0 &&
         newPos[1] <= MAP_HEIGHT - TILE_SIZE
-}
-
-function attemptMove(oldPos, newPos) {
-    let canMove = respectBoundaries(oldPos, newPos);
-    if (canMove) {
-        canMove = respectObstructions(oldPos, newPos);
-        animateWalk()
-    }
-
-    return (canMove) ? newPos : oldPos
 }
 
 function respectObstructions(oldPos, newPos) {
@@ -25,19 +25,14 @@ function respectObstructions(oldPos, newPos) {
     return (tiles[y][x] <= 5)
 }
 
+function attemptMove(oldPos, newPos) {
+    let canMove = respectBoundaries(oldPos, newPos);
+    if (canMove)
+        canMove = respectObstructions(oldPos, newPos);
+    if (canMove) animateWalk();
+    randomFight();
 
-function handleDirectionMove(e, direction) {
-    const state = store.getState();
-    console.log(state);
-    store.dispatch({
-        type: "MOVE_PLAYER",
-        payload: {
-            position: getNewPosition(state.player.position, direction),
-            direction: direction,
-            spriteLocation: getSpriteLocation(direction),
-        }
-    });
-    e.preventDefault()
+    return (canMove) ? newPos : oldPos
 }
 
 function getNewPosition(oldPos, direction) {
@@ -73,9 +68,6 @@ function getNewPosition(oldPos, direction) {
 
 function getSpriteLocation(direction) {
     const wi = store.getState().player.walkIndex;
-    if(store.getState().player.position === [520, 80]) {
-        prompt('hello how many');
-    }
     switch(direction) {
         case 'south':
             return `${TILE_SIZE*wi}px ${0}px`;
@@ -86,14 +78,25 @@ function getSpriteLocation(direction) {
         case 'north':
             return `${TILE_SIZE*wi}px ${TILE_SIZE*3}px`;
         default:
-            return null;
-
-
+            return;
     }
 }
 
-function handleKeyDown(e) {
+function handleDirectionMove(e, direction) {
+    const state = store.getState();
+    store.dispatch({
+        type: "MOVE_PLAYER",
+        payload: {
+            position: getNewPosition(state.player.position, direction),
+            direction: direction,
+            spriteLocation: getSpriteLocation(direction),
+        }
+    });
+    e.preventDefault()
+}
 
+function handleKeyDown(e) {
+    e.preventDefault();
     switch(e.keyCode) {
         case 40:
             handleDirectionMove(e, 'south');
@@ -108,6 +111,7 @@ function handleKeyDown(e) {
             handleDirectionMove(e, 'north');
             return;
         default:
+            console.log(e.keyCode)
     }
 }
 
@@ -122,7 +126,7 @@ function animateWalk() {
 
 export default function handleMovement(wrappedComponent) {
     window.addEventListener('keydown', (e) => {
-        handleKeyDown(e, wrappedComponent)
+        if(!store.getState().model.visible) handleKeyDown(e)
     });
 
     return wrappedComponent

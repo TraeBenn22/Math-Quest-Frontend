@@ -49,12 +49,4 @@ function Map(props) {
     )
 }
 
-// function mathQuestion() {
-//     prompt('What is 2 + 2?');
-// }
-
-// if(Player){
-//     window.addEventListener('position', mathQuestion);
-// }
-
 export default Map;

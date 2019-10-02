@@ -1,17 +1,17 @@
 const initialState = {
-    tiles: []
+    tiles: [],
 };
 
 const mapReducer = (state=initialState, action) => {
     switch(action.type) {
-        case 'ADD_TILES':
+        case 'ADD_DATA':
             return {
-                ...state,
-                tiles: action.payload,
+                ...action.payload,
             };
+
         default:
-            return state;
+            return state
     }
 };
 
-export default mapReducer;
+export default mapReducer

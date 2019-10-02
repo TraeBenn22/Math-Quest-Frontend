@@ -26,7 +26,7 @@ class App extends React.Component {
     render() {
         return (
             <LoginProvider >
-                <head>MATH QUEST</head>
+                <head><title>MATH QUEST</title></head>
                 <Login  />
                 <hr />
                 <Read />
