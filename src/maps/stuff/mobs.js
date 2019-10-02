@@ -1,5 +1,6 @@
 const mobs = [
     {
+        health: 5,
         name: "Goblin",
         image: 'goblin.png',
         strength: 16,
@@ -7,8 +8,10 @@ const mobs = [
         wisdom: 9,
         dexterity: 12,
         constitution: 18,
+
     },
     {
+        health: 7,
         name: "Wolf",
         image: 'wolf.png',
         strength: 14,
@@ -16,8 +19,10 @@ const mobs = [
         wisdom: 11,
         dexterity: 16,
         constitution: 14,
+
     },
     {
+        health: 2,
         name: "Spider",
         image: 'spider.png',
         strength: 10,
@@ -25,6 +30,7 @@ const mobs = [
         wisdom: 13,
         dexterity: 14,
         constitution: 11,
+
     },
 ];
 
