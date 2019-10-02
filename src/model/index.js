@@ -63,7 +63,7 @@ function mapDispatchToProps(dispatch) {
         openModel: (type) => {
             dispatch({type: 'OPEN_MODEL'})
         },
-        closeModel: () => {
+        closeModel: (type) => {
             dispatch({type: 'CLOSE_MODEL'})
         }
     }
