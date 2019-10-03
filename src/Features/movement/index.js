@@ -1,8 +1,5 @@
 import store from '../../config/store'
 import { TILE_SIZE, MAP_HEIGHT, MAP_WIDTH } from '../../config/constants'
-import  {LoginProvider} from '../../login/components/auth/context'
-import returnState from '../../login/components/auth/context'
-
 function randomFight() {
     const fightChance = Math.random() * 10;
     if( fightChance > 9) store.dispatch({
@@ -97,8 +94,9 @@ function handleDirectionMove(e, direction) {
     e.preventDefault()
 }
 
+
+
 function handleKeyDown(e) {
-    e.preventDefault();
     switch(e.keyCode) {
         case 40:
             handleDirectionMove(e, 'south');
@@ -128,10 +126,7 @@ function animateWalk() {
 
 export default function handleMovement(wrappedComponent) {
     window.addEventListener('keydown', (e) => {
-        const There = new LoginProvider();
-        if(!There.state.loggedIn){
-            handleKeyDown(e)
-        }
+        if(!store.getState().model.visible) handleKeyDown(e)
     });
 
     return wrappedComponent

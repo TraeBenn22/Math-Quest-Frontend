@@ -1,6 +1,10 @@
 import React from 'react';
 import { LoginContext } from './context';
 
+export function returnFunction(props) {
+    return props = null
+}
+
 
 const If = props => {
     return !!props.condition ? props.children : null;
@@ -19,6 +23,7 @@ class Login extends React.Component {
     };
 
     handleSubmit = (e, type) => {
+        console.log(e, type);
         e.preventDefault();
         this.context.login(this.state.username, this.state.password, type);
     };
@@ -44,7 +49,7 @@ class Login extends React.Component {
                             type="password"
                             onChange={this.handleChange}
                         />
-                        <button className={'login'} onClick={(e) => this.handleSubmit(e, 'signin')}>Sign In</button>
+                        <button className={'login'}  onClick={(e) => this.handleSubmit(e, 'signin')}>Sign In</button>
                         <button className={'login'} onClick={(e) => this.handleSubmit(e, 'signup')}>Sign Up</button>
                     </form>
                 </If>

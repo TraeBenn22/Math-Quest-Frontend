@@ -4,8 +4,6 @@ import './styles.css';
 
 function getTileDisplay(type) {
     switch(type) {
-        case 1:
-            return 'monster';
         case 4:
             return 'tree';
         case 5:

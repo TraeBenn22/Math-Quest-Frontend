@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import FightModel from './fight'
+import GameOver from './fight';
 
 import './styles.css'
 
@@ -35,6 +36,8 @@ function renderModel(props) {
     switch(props.type) {
         case 'FIGHT':
             return <FightModel />;
+        case 'GAME OVER':
+            return <GameOver />
     }
 
 }
