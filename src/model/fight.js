@@ -26,6 +26,7 @@ function mobFinder(props) {
 }
 
 let counter = 0;
+
 function mathPrompt() {
     let firstNumber = getRandomNumber();
     let secondNumber = getRandomNumber();
@@ -62,14 +63,13 @@ function mathPrompt() {
             store.dispatch({
                 type: 'SHOW_MODEL',
                 payload: {
-                  type:  'GAME OVER'
+                    type: 'GAME OVER'
                 }
             });
 
         }
     }
 }
-
 
 
 function defendRoll() {

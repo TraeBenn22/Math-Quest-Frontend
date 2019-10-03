@@ -1,11 +1,11 @@
 const initialState = {
-    position: [0,0],
+    position: [0, 0],
     direction: 'east',
     spriteLocation: '0 0',
 };
 
-const playerReducer = (state=initialState, action) => {
-    switch(action.type) {
+const playerReducer = (state = initialState, action) => {
+    switch (action.type) {
         case 'MOVE_PLAYER':
             return {
                 ...state,

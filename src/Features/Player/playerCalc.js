@@ -5,7 +5,7 @@ let playerData = {
 
 
 export function playerCalc(props) {
-    if(props - playerData.strength < 0) {
+    if (props - playerData.strength < 0) {
         return true;
     } else {
         return false;

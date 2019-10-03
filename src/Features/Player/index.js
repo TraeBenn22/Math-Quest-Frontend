@@ -8,7 +8,7 @@ import walkSprite from './player_walk.png';
 function mapDispatchToProps(dispatch) {
     return {
         move: (direction) => {
-            dispatch({ type: 'MOVE_PLAYER', payload: direction })
+            dispatch({type: 'MOVE_PLAYER', payload: direction})
         }
     }
 }

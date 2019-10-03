@@ -40,6 +40,7 @@
     white-space: nowrap;
     overflow: hidden;
 }
+
 .gameOver p:nth-child(1) {
     width: 7.3em;
     -webkit-animation: type 2s steps(40, end);
@@ -155,6 +156,7 @@
         border-color: transparent;
     }
 }
+
 @-webkit-keyframes blink {
     50% {
         border-color: transparent;
@@ -164,15 +166,17 @@
 .attack:hover {
     background-color: #b2b3b3;
     background-image: -webkit-linear-gradient(bottom, #aca9b3 0%, #faf6fb 100%);
-    background-image:         linear-gradient(to bottom, #afafb3 0%, #fbf9fa 100%);
+    background-image: linear-gradient(to bottom, #afafb3 0%, #fbf9fa 100%);
 }
+
 .defend:hover {
     background-color: #b2b3b3;
     background-image: -webkit-linear-gradient(bottom, #aca9b3 0%, #faf6fb 100%);
-    background-image:         linear-gradient(to bottom, #afafb3 0%, #fbf9fa 100%);
+    background-image: linear-gradient(to bottom, #afafb3 0%, #fbf9fa 100%);
 }
+
 .run:hover {
     background-color: #b2b3b3;
     background-image: -webkit-linear-gradient(bottom, #aca9b3 0%, #faf6fb 100%);
-    background-image:         linear-gradient(to bottom, #afafb3 0%, #fbf9fa 100%);
+    background-image: linear-gradient(to bottom, #afafb3 0%, #fbf9fa 100%);
 }

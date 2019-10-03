@@ -25,12 +25,12 @@ const Update = props => {
 class App extends React.Component {
     render() {
         return (
-            <LoginProvider >
+            <LoginProvider>
                 <head><title>MATH QUEST</title></head>
-                <Login  />
-                <hr />
-                <Read />
-                <Update />
+                <Login/>
+                <hr/>
+                <Read/>
+                <Update/>
             </LoginProvider>
         );
     }

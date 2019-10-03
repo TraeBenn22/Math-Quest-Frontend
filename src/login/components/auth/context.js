@@ -34,7 +34,7 @@ export class LoginProvider extends React.Component {
         };
 
         if (type === 'signup') {
-            options.body = JSON.stringify({ username, password });
+            options.body = JSON.stringify({username, password});
             options.headers = new Headers({
                 'Content-Type': 'application/json',
             });
@@ -42,7 +42,7 @@ export class LoginProvider extends React.Component {
 
         fetch(`${API}/${type}`, options)
             .then((response) => response.text())
-            .then((token) =>  this.validateToken(token))
+            .then((token) => this.validateToken(token))
             .catch(console.error);
     };
 
@@ -50,7 +50,6 @@ export class LoginProvider extends React.Component {
     logout = () => {
         this.setLoginState(false, null, {});
     };
-
 
 
     validateToken = (token) => {
@@ -67,7 +66,7 @@ export class LoginProvider extends React.Component {
 
     setLoginState = (loggedIn, user, token) => {
         cookie.save('auth', token);
-        this.setState({ token, loggedIn, user });
+        this.setState({token, loggedIn, user});
     };
 
     componentDidMount() {

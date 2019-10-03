@@ -3,7 +3,7 @@ import {TILE_SIZE} from '../../config/constants';
 import './styles.css';
 
 function getTileDisplay(type) {
-    switch(type) {
+    switch (type) {
         case 4:
             return 'tree';
         case 5:
@@ -16,6 +16,7 @@ function getTileDisplay(type) {
             return 'path';
     }
 }
+
 function Map(props) {
     return (
         <div style={{
@@ -31,7 +32,7 @@ function Map(props) {
                             lineHeight: `${TILE_SIZE}px`,
                         }}
                     >
-                        { row.map((tile, x) =>
+                        {row.map((tile, x) =>
                             <div
                                 key={x}
                                 className={`tile ${getTileDisplay(tile)}`}
@@ -39,7 +40,7 @@ function Map(props) {
                                     width: `${TILE_SIZE}px`,
                                     height: `${TILE_SIZE}px`,
                                 }}
-                            />) }
+                            />)}
                     </div>
                 )
             }

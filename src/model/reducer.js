@@ -1,11 +1,9 @@
-
-
 const initialState = {
     visible: false,
 };
 
-const modelReducer = (state=initialState, action) => {
-    switch(action.type) {
+const modelReducer = (state = initialState, action) => {
+    switch (action.type) {
         case 'SHOW_MODEL':
             return {
                 visible: true,

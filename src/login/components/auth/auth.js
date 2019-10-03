@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginContext } from './context';
+import {LoginContext} from './context';
 
 const If = props => {
     return !!props.condition ? props.children : null;
@@ -12,7 +12,7 @@ class Auth extends React.Component {
         let okToRender = false;
         try {
             okToRender = this.context.loggedIn
-              && (this.props.capability ? this.context.user.capabilities.includes(this.props.capability) : true);
+                && (this.props.capability ? this.context.user.capabilities.includes(this.props.capability) : true);
 
         } catch (e) {
             console.warn('Not Authorized');

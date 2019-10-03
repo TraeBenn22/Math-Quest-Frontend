@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginContext } from './context';
+import {LoginContext} from './context';
 
 export function returnFunction(props) {
     return props = null
@@ -15,11 +15,11 @@ class Login extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { username: '', password: '' };
+        this.state = {username: '', password: ''};
     }
 
     handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({[e.target.name]: e.target.value});
     };
 
     handleSubmit = (e, type) => {
@@ -49,7 +49,7 @@ class Login extends React.Component {
                             type="password"
                             onChange={this.handleChange}
                         />
-                        <button className={'login'}  onClick={(e) => this.handleSubmit(e, 'signin')}>Sign In</button>
+                        <button className={'login'} onClick={(e) => this.handleSubmit(e, 'signin')}>Sign In</button>
                         <button className={'login'} onClick={(e) => this.handleSubmit(e, 'signup')}>Sign Up</button>
                     </form>
                 </If>

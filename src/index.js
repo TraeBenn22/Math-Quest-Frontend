@@ -7,20 +7,19 @@ import store from './config/store';
 
 const Main = () => {
     return (
-        <App />
+        <App/>
     );
 };
 
 
-
 function renderGame() {
     ReactDOM.render(<Provider store={store}>
-        <Game />
+        <Game/>
     </Provider>, document.getElementById('root'));
 }
 
 const root = document.getElementById('root');
-ReactDOM.render(<Main />, root);
+ReactDOM.render(<Main/>, root);
 
 export default renderGame;
 

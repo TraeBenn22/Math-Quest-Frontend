@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import FightModel from './fight'
 import GameOver from './fight';
 
@@ -7,7 +7,7 @@ import './styles.css'
 
 function handleKeyDown(e) {
     e.preventDefault();
-    switch(e.keyCode) {
+    switch (e.keyCode) {
         case 40:
             console.log('down');
             return;
@@ -28,16 +28,16 @@ function handleKeyDown(e) {
 
 function setupKeyCapture(props) {
     window.addEventListener('keydown', (e) => {
-        if(props.visible) handleKeyDown(e)
+        if (props.visible) handleKeyDown(e)
     })
 }
 
 function renderModel(props) {
-    switch(props.type) {
+    switch (props.type) {
         case 'FIGHT':
-            return <FightModel />;
+            return <FightModel/>;
         case 'GAME OVER':
-            return <GameOver />
+            return <GameOver/>
     }
 
 }
@@ -46,7 +46,7 @@ function Model(props) {
     setupKeyCapture(props);
     return (
         <div
-            style={{ display: props.visible ? 'block' : 'none' }}
+            style={{display: props.visible ? 'block' : 'none'}}
             className='model'
         >
             <h1>{props.type}!</h1>

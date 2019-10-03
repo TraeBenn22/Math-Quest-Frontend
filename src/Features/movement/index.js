@@ -1,8 +1,9 @@
 import store from '../../config/store'
-import { TILE_SIZE, MAP_HEIGHT, MAP_WIDTH } from '../../config/constants'
+import {TILE_SIZE, MAP_HEIGHT, MAP_WIDTH} from '../../config/constants'
+
 function randomFight() {
     const fightChance = Math.random() * 10;
-    if( fightChance > 9) store.dispatch({
+    if (fightChance > 9) store.dispatch({
         type: 'SHOW_MODEL',
         payload: {
             type: 'FIGHT'
@@ -18,9 +19,9 @@ function respectBoundaries(oldPos, newPos) {
 }
 
 function respectObstructions(oldPos, newPos) {
-    const x = newPos[0]/TILE_SIZE;
-    const y = newPos[1]/TILE_SIZE;
-    const { tiles } = store.getState().map;
+    const x = newPos[0] / TILE_SIZE;
+    const y = newPos[1] / TILE_SIZE;
+    const {tiles} = store.getState().map;
     return (tiles[y][x] <= 5)
 }
 
@@ -35,47 +36,47 @@ function attemptMove(oldPos, newPos) {
 }
 
 function getNewPosition(oldPos, direction) {
-    switch(direction) {
+    switch (direction) {
         case 'west':
             return attemptMove(
                 oldPos,
-                [ oldPos[0]-TILE_SIZE, oldPos[1] ]
+                [oldPos[0] - TILE_SIZE, oldPos[1]]
             );
 
         case 'east':
             return attemptMove(
                 oldPos,
-                [ oldPos[0]+TILE_SIZE, oldPos[1] ]
+                [oldPos[0] + TILE_SIZE, oldPos[1]]
             );
 
         case 'north':
             return attemptMove(
                 oldPos,
-                [ oldPos[0], oldPos[1]-TILE_SIZE ]
+                [oldPos[0], oldPos[1] - TILE_SIZE]
             );
 
         case 'south':
             return attemptMove(
                 oldPos,
-                [ oldPos[0], oldPos[1]+TILE_SIZE ]
+                [oldPos[0], oldPos[1] + TILE_SIZE]
             );
 
         default:
-            return  [ oldPos[0], oldPos[1] ]
+            return [oldPos[0], oldPos[1]]
     }
 }
 
 function getSpriteLocation(direction) {
     const wi = store.getState().player.walkIndex;
-    switch(direction) {
+    switch (direction) {
         case 'south':
-            return `${TILE_SIZE*wi}px ${0}px`;
+            return `${TILE_SIZE * wi}px ${0}px`;
         case 'east':
-            return `${TILE_SIZE*wi}px ${TILE_SIZE}px`;
+            return `${TILE_SIZE * wi}px ${TILE_SIZE}px`;
         case 'west':
-            return `${TILE_SIZE*wi}px ${TILE_SIZE*2}px`;
+            return `${TILE_SIZE * wi}px ${TILE_SIZE * 2}px`;
         case 'north':
-            return `${TILE_SIZE*wi}px ${TILE_SIZE*3}px`;
+            return `${TILE_SIZE * wi}px ${TILE_SIZE * 3}px`;
         default:
             return;
     }
@@ -95,9 +96,8 @@ function handleDirectionMove(e, direction) {
 }
 
 
-
 function handleKeyDown(e) {
-    switch(e.keyCode) {
+    switch (e.keyCode) {
         case 40:
             handleDirectionMove(e, 'south');
             return;
@@ -117,7 +117,7 @@ function handleKeyDown(e) {
 
 function updateWalkIndex() {
     const index = store.getState().player.walkIndex;
-    return (index < 8) ? index+1 : 0
+    return (index < 8) ? index + 1 : 0
 }
 
 function animateWalk() {
@@ -126,7 +126,7 @@ function animateWalk() {
 
 export default function handleMovement(wrappedComponent) {
     window.addEventListener('keydown', (e) => {
-        if(!store.getState().model.visible) handleKeyDown(e)
+        if (!store.getState().model.visible) handleKeyDown(e)
     });
 
     return wrappedComponent

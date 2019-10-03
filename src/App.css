@@ -1,19 +1,19 @@
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
 }
 
 body {
-  margin: 0;
-  padding: 32px;
-  background-color: black;
+    margin: 0;
+    padding: 32px;
+    background-color: black;
 }
 
 body .map {
-  padding: 0;
-  margin: 0 auto;
-  border: 10px solid white;
-  background-color: rgb(66, 184, 66);
+    padding: 0;
+    margin: 0 auto;
+    border: 10px solid white;
+    background-color: rgb(66, 184, 66);
 }
