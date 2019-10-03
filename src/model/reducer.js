@@ -1,5 +1,4 @@
 
-import undoable from 'redux-undo';
 
 const initialState = {
     visible: false,

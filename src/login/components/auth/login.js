@@ -1,6 +1,6 @@
 import React from 'react';
 import { LoginContext } from './context';
-import renderFunction from '../../../index';
+
 
 const If = props => {
     return !!props.condition ? props.children : null;
@@ -20,7 +20,6 @@ class Login extends React.Component {
 
     handleSubmit = (e, type) => {
         e.preventDefault();
-        renderFunction();
         this.context.login(this.state.username, this.state.password, type);
     };
 

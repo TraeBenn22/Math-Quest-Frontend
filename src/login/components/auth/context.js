@@ -1,23 +1,25 @@
 import React from 'react';
 import jwt from 'jsonwebtoken';
 import cookie from 'react-cookies';
+import renderFunction from '../../../index'
 
 
 export const LoginContext = React.createContext();
 
 const API = process.env.REACT_APP_API;
 
-class LoginProvider extends React.Component {
+export class LoginProvider extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // all the auth data we want to pass to children
             loggedIn: false,
             token: null,
             user: {},
             login: this.login,
             logout: this.logout,
         };
+
+
     }
 
     // login
@@ -50,9 +52,12 @@ class LoginProvider extends React.Component {
     };
 
 
+
     validateToken = (token) => {
         try {
-            const user = jwt.verify(token, process.env.REACT_APP_SECRET);
+            renderFunction();
+            const user = jwt.verify(token, process.env.REACT_APP_SECRET)
+            console.log(token);
             this.setLoginState(true, user, token);
         } catch (e) {
             this.setLoginState(false, null, {});

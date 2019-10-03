@@ -1,5 +1,7 @@
 import store from '../../config/store'
 import { TILE_SIZE, MAP_HEIGHT, MAP_WIDTH } from '../../config/constants'
+import  {LoginProvider} from '../../login/components/auth/context'
+import returnState from '../../login/components/auth/context'
 
 function randomFight() {
     const fightChance = Math.random() * 10;
@@ -126,7 +128,10 @@ function animateWalk() {
 
 export default function handleMovement(wrappedComponent) {
     window.addEventListener('keydown', (e) => {
-        if(!store.getState().model.visible) handleKeyDown(e)
+        const There = new LoginProvider();
+        if(!There.state.loggedIn){
+            handleKeyDown(e)
+        }
     });
 
     return wrappedComponent

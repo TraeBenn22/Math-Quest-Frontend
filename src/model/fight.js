@@ -7,7 +7,7 @@ import spider from './mobs/spider.png';
 import {playerCalc} from '../Features/Player/playerCalc'
 import playerData from "../Features/Player/playerCalc";
 import mobStats from '../maps/stuff/mobs'
-import ReduxUndo from 'redux-undo';
+import store from '../config/store';
 
 function mobFinder(props) {
     if(props === 'goblin.png') {
@@ -28,6 +28,11 @@ function mathPrompt() {
         alert(`You attack for ${damage} damage!`);
         if(playerCalc(mobStats[0].health)) {
             alert('You have defeated the monster!');
+            store.dispatch( {
+                type: 'HIDE_MODEL',
+                payload: {
+                }
+            })
         } else {
             mobStats[0].health = mobStats[0].health - 2;
             alert('Looks like you just hurt him a bit, dont give up!')
@@ -41,6 +46,13 @@ function mathPrompt() {
 function defendRoll() {
     alert("You dodged the attack!");
 }
+function escape() {
+    store.dispatch( {
+        type: 'HIDE_MODEL',
+        payload: {
+        }
+    })
+}
 
 function FightModel(props) {
     return <div>
@@ -50,7 +62,7 @@ function FightModel(props) {
         <div className='menu'>
             <ul className={'attack'} onClick={mathPrompt}>Attack</ul>
             <ul className={'defend'} onClick={defendRoll}>Defend</ul>
-            <ul className={'run'}>Run</ul>
+            <ul className={'run'} onClick={escape}>Run</ul>
         </div>
     </div>
 }
