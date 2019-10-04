@@ -1,3 +1,4 @@
+/* eslint react/prop-types: 0 */
 export function range(start, end) {
     return Array.apply(0, Array(end + 1 - start))
         .map(function (val, index) {
