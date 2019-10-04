@@ -42,9 +42,11 @@ function mathPrompt() {
                 type: 'HIDE_MODEL',
                 payload: {}
             })
+        } else {
+            mobStats[0].health = mobStats[0].health - 2;
+            alert('Looks like you just hurt him a bit, dont give up!')
         }
-        mobStats[0].health = mobStats[0].health - 2;
-        alert('Looks like you just hurt him a bit, dont give up!')
+
     } else {
         alert('Oh no, you took 3 damage!');
         counter = counter + 1;

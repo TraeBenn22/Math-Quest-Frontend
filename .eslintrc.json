@@ -24,6 +24,7 @@
     "no-trailing-spaces":"off",
     "no-underscore-dangle": "off",
     "react/prop-types": 0,
+    "import/no-cycle": 0,
     "strict": "off"
   }
 }
