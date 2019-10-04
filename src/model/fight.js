@@ -43,7 +43,7 @@ function mathPrompt() {
                 payload: {}
             })
         } else {
-            mobStats[0].health = mobStats[0].health - 2;
+            mobStats[0].health -= mobStats[0].health;
             alert('Looks like you just hurt him a bit, dont give up!')
         }
 
