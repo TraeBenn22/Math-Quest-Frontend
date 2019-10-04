@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {range, sample} from '../trackerArray'
+import {sample} from '../trackerArray'
 import goblin from './mobs/goblin.png';
 import wolf from './mobs/wolf.png';
 import spider from './mobs/spider.png';
@@ -33,7 +33,7 @@ function mathPrompt() {
     let damage = playerData.strength;
     let question = prompt(`What is ${firstNumber} + ${secondNumber}?`);
     console.log(firstNumber + secondNumber);
-    if (question == firstNumber + secondNumber) {
+    if (question === firstNumber + secondNumber) {
         alert(`You attack for ${damage} damage!`);
         if (playerCalc(mobStats[0].health)) {
             alert('You have defeated the monster!');
@@ -42,15 +42,12 @@ function mathPrompt() {
                 type: 'HIDE_MODEL',
                 payload: {}
             })
-        } else {
-
-            mobStats[0].health = mobStats[0].health - 2;
-            alert('Looks like you just hurt him a bit, dont give up!')
-
         }
+        mobStats[0].health = mobStats[0].health - 2;
+        alert('Looks like you just hurt him a bit, dont give up!')
     } else {
         alert('Oh no, you took 3 damage!');
-        counter++;
+        counter = counter + 1;
         console.log(counter);
         if (counter === 2) {
             alert('Looks like your days of adventuring are over...');
@@ -84,7 +81,7 @@ function escape() {
     })
 }
 
-function GameOver() {
+export function GameOver() {
     return <div>
         <div className='gameOver'>
             <p>
@@ -99,7 +96,7 @@ function GameOver() {
     </div>
 }
 
-function FightModel(props) {
+export function FightModel(props) {
     return <div>
         <div className='enemy'>
             <img src={mobFinder(props.enemy.image)} alt={props.enemy.name}/>
@@ -117,7 +114,7 @@ function randomMob(mobs, levelRange) {
     const data = sample(mobs);
     return {
         ...data,
-        health: parseInt(data.constitution * sample(range(...levelRange)))
+        levelRange,
     }
 }
 

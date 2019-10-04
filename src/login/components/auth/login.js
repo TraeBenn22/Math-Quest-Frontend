@@ -1,10 +1,6 @@
 import React from 'react';
 import {LoginContext} from './context';
 
-export function returnFunction(props) {
-    return props = null
-}
-
 
 const If = props => {
     return !!props.condition ? props.children : null;

@@ -2,11 +2,11 @@ import React from 'react';
 
 import Auth from './components/auth/auth';
 import Login from './components/auth/login';
-import LoginProvider from './components/auth/context';
+import LoginProviderFor from './components/auth/context';
 import '../login.css';
 
 
-const Read = props => {
+const Read = () => {
     return (
         <Auth capability="read">
             <span>Read</span>
@@ -14,7 +14,7 @@ const Read = props => {
     );
 };
 
-const Update = props => {
+const Update = () => {
     return (
         <Auth capability="update">
             <span>Update</span>
@@ -25,13 +25,13 @@ const Update = props => {
 class App extends React.Component {
     render() {
         return (
-            <LoginProvider>
+            <LoginProviderFor>
                 <head><title>MATH QUEST</title></head>
                 <Login/>
                 <hr/>
                 <Read/>
                 <Update/>
-            </LoginProvider>
+            </LoginProviderFor>
         );
     }
 }

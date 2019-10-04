@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import FightModel from './fight'
-import GameOver from './fight';
+import {FightModel, GameOver} from './fight'
 
 import './styles.css'
 
@@ -37,7 +36,9 @@ function renderModel(props) {
         case 'FIGHT':
             return <FightModel/>;
         case 'GAME OVER':
-            return <GameOver/>
+            return <GameOver/>;
+        default:
+            return true;
     }
 
 }
@@ -61,14 +62,8 @@ function mapStateToProps(state) {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps() {
     return {
-        openModel: (type) => {
-            dispatch({type: 'OPEN_MODEL'})
-        },
-        closeModel: (type) => {
-            dispatch({type: 'CLOSE_MODEL'})
-        }
     }
 }
 

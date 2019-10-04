@@ -25,6 +25,10 @@ function respectObstructions(oldPos, newPos) {
     return (tiles[y][x] <= 5)
 }
 
+function animateWalk() {
+    store.dispatch({type: 'UPDATE_WALK_INDEX', payload: updateWalkIndex()})
+}
+
 function attemptMove(oldPos, newPos) {
     let canMove = respectBoundaries(oldPos, newPos);
     if (canMove)
@@ -78,7 +82,7 @@ function getSpriteLocation(direction) {
         case 'north':
             return `${TILE_SIZE * wi}px ${TILE_SIZE * 3}px`;
         default:
-            return;
+            return true;
     }
 }
 
@@ -120,9 +124,6 @@ function updateWalkIndex() {
     return (index < 8) ? index + 1 : 0
 }
 
-function animateWalk() {
-    store.dispatch({type: 'UPDATE_WALK_INDEX', payload: updateWalkIndex()})
-}
 
 export default function handleMovement(wrappedComponent) {
     window.addEventListener('keydown', (e) => {

@@ -5,12 +5,6 @@ import Game from './App';
 import {Provider} from 'react-redux';
 import store from './config/store';
 
-const Main = () => {
-    return (
-        <App/>
-    );
-};
-
 
 function renderGame() {
     ReactDOM.render(<Provider store={store}>
