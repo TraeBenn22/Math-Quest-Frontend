@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Auth from './components/auth/auth';
+import Auth from './components/auth/';
 import Login from './components/auth/login';
 import LoginProvider from './components/auth/context';
 import '../login.css';

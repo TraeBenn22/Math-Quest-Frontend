@@ -5,7 +5,6 @@ import Player from './Features/Player'
 import Map from './Features/map/'
 import Model from './model'
 import map from './maps/stuff'
-import PropTypes from 'prop-types';
 
 import {MAP_HEIGHT, MAP_WIDTH} from './config/constants'
 
