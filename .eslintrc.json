@@ -23,6 +23,7 @@
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-trailing-spaces":"off",
     "no-underscore-dangle": "off",
+    "react/prop-types": 0,
     "strict": "off"
   }
 }
