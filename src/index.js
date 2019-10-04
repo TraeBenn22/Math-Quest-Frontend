@@ -19,7 +19,7 @@ function renderGame() {
 }
 
 const root = document.getElementById('root');
-ReactDOM.render(<Main/>, root);
+ReactDOM.render(<App/>, root);
 
 export default renderGame;
 
