@@ -25,14 +25,7 @@ function respectObstructions(oldPos, newPos) {
     return (tiles[y][x] <= 5)
 }
 
-function updateWalkIndex() {
-    const index = store.getState().player.walkIndex;
-    return (index < 8) ? index + 1 : 0
-}
 
-function animateWalk() {
-    store.dispatch({type: 'UPDATE_WALK_INDEX', payload: updateWalkIndex()})
-}
 
 function attemptMove(oldPos, newPos) {
     let canMove = respectBoundaries(oldPos, newPos);
@@ -122,6 +115,16 @@ function handleKeyDown(e) {
         default:
             console.log(e.keyCode)
     }
+}
+
+function updateWalkIndex() {
+    const index = store.getState().player.walkIndex;
+    return (index < 8) ? index + 1 : 0
+}
+
+
+function animateWalk() {
+    store.dispatch({type: 'UPDATE_WALK_INDEX', payload: updateWalkIndex()})
 }
 
 

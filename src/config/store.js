@@ -2,12 +2,14 @@ import {createStore, combineReducers} from 'redux';
 import playerReducer from '../Features/Player/reducer'
 import mapReducer from "../Features/map/reducer";
 import modelReducer from "../model/reducer";
+import GameOvermodelReducer from "../Game-Over-Modal/reducer";
 
 
 const rootReducer = combineReducers({
     player: playerReducer,
     map: mapReducer,
     model: modelReducer,
+    Gmodel: GameOvermodelReducer,
 });
 
 

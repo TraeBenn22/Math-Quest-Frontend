@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {sample} from '../trackerArray'
+import {sample, range} from '../trackerArray'
 import goblin from './mobs/goblin.png';
 import wolf from './mobs/wolf.png';
 import spider from './mobs/spider.png';
@@ -16,6 +16,7 @@ function getRandomNumber() {
 
 
 function mobFinder(props) {
+    console.log(props);
     if (props === 'goblin.png') {
         return goblin;
     } else if (props === 'wolf.png') {
@@ -33,7 +34,7 @@ function mathPrompt() {
     let damage = playerData.strength;
     let question = prompt(`What is ${firstNumber} + ${secondNumber}?`);
     console.log(firstNumber + secondNumber);
-    if (question === firstNumber + secondNumber) {
+    if (question == firstNumber + secondNumber) {
         alert(`You attack for ${damage} damage!`);
         if (playerCalc(mobStats[0].health)) {
             alert('You have defeated the monster!');
@@ -49,9 +50,9 @@ function mathPrompt() {
 
     } else {
         alert('Oh no, you took 3 damage!');
-        counter = counter + 1;
+        counter++;
         console.log(counter);
-        if (counter === 2) {
+        if (counter == 2) {
             alert('Looks like your days of adventuring are over...');
             store.dispatch({
                 type: 'HIDE_MODEL',
@@ -65,7 +66,6 @@ function mathPrompt() {
                     type: 'GAME OVER'
                 }
             });
-
         }
     }
 }
@@ -83,22 +83,16 @@ function escape() {
     })
 }
 
-export function GameOver() {
-    return <div>
+ function GameOver(props) {
+    return (<div>
         <div className='gameOver'>
-            <p>
-                You did very well to get this far.
-            </p>
-            <p>
-                Wow you did it very well
-            </p>
-            <p>
-                hello what the heck
-            </p></div>
+            {props.enemy.image}
+            </div>
     </div>
+    )
 }
 
-export function FightModel(props) {
+ function FightModel(props) {
     return <div>
         <div className='enemy'>
             <img src={mobFinder(props.enemy.image)} alt={props.enemy.name}/>
@@ -116,7 +110,7 @@ function randomMob(mobs, levelRange) {
     const data = sample(mobs);
     return {
         ...data,
-        levelRange,
+        health: parseInt(data.constitution * sample(range(...levelRange)))
     }
 }
 
@@ -127,4 +121,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(FightModel, GameOver)
+    export default connect(mapStateToProps)(FightModel)
