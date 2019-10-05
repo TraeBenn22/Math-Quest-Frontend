@@ -1,10 +1,10 @@
-import tiles2 from './tiles'
+import tiles from './tiles'
 import mobs from './mobs'
 
 const levelRange = [1, 4];
 
 export default {
-    tiles2,
+    tiles,
     mobs,
     levelRange,
 }

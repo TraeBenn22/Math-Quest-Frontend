@@ -1,8 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import FightModel from './fight'
 import GameOver from './fight'
-
 import './styles.css'
 
 function handleKeyDown(e) {
@@ -34,8 +32,6 @@ function setupKeyCapture(props) {
 
 function renderModel(props) {
     switch (props.type) {
-        case 'FIGHT':
-            return <FightModel/>;
         case 'GAME OVER':
             return <GameOver/>;
     }
@@ -48,19 +44,6 @@ function GoModel(props) {
         <div
             style={{display: props.visible ? 'block' : 'none'}}
             className='Gomodel'
-        >
-            <h1>{props.type}!</h1>
-            <div>{renderModel(props)}</div>
-        </div>
-    )
-}
-
-function Model(props) {
-    setupKeyCapture(props);
-    return (
-        <div
-            style={{display: props.visible ? 'block' : 'none'}}
-            className='model'
         >
             <h1>{props.type}!</h1>
             <div>{renderModel(props)}</div>
@@ -85,4 +68,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Model, GoModel)
+export default connect(mapStateToProps, mapDispatchToProps)(GoModel)

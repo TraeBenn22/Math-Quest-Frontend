@@ -17,6 +17,26 @@
     text-align: center;
 }
 
+.Gomodel {
+    font-family: 'MedievalSharp', cursive;
+    position: relative;
+    margin: 0 auto;
+    width: 700px;
+    height: 400px;
+    background-color: black;
+    border: 4px solid white;
+    z-index: 100;
+    color: white;
+}
+
+.Gomodel h1 {
+    font-family: 'MedievalSharp', cursive;
+    margin-top: 0.5em;
+    font-size: 2em;
+    text-align: center;
+}
+
+
 .menu {
     font-size: 2em;
     text-align: center;
