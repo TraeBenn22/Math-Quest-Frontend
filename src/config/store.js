@@ -20,3 +20,4 @@ const store = createStore(
 
 export default store;
 
+//This is my overall store of information in my redux app

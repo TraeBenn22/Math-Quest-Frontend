@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import './styles.css';
 import walkSprite from './player_walk.png';
 
+//my dispatch for the player, his ability to move and the image to update accordingly across the tile and map
 
 function mapDispatchToProps(dispatch) {
     return {

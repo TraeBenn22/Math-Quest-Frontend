@@ -4,6 +4,8 @@ const initialState = {
     spriteLocation: '0 0',
 };
 
+//the reducer for my player's movement using cardinal directions, array positioning and reference location fo the sprite
+
 const playerReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'MOVE_PLAYER':
