@@ -9,6 +9,8 @@ import playerData from "../Features/Player/playerCalc";
 import mobStats from '../maps/stuff/mobs'
 import store from '../config/store';
 
+// thuis file handles all of the functionaility fo my fight encounters, the actions during them, and the math questions avaliable during this process
+
 
 function getRandomNumber() {
     return Math.floor(Math.random() * Math.floor(15));
@@ -34,7 +36,7 @@ function mathPrompt() {
     let damage = playerData.strength;
     let question = prompt(`What is ${firstNumber} + ${secondNumber}?`);
     console.log(firstNumber + secondNumber);
-    if (question == firstNumber + secondNumber) {
+    if (Number(question) === firstNumber + secondNumber) {
         alert(`You attack for ${damage} damage!`);
         if (playerCalc(mobStats[0].health)) {
             alert('You have defeated the monster!');

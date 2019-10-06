@@ -1,6 +1,6 @@
 import store from '../../config/store'
 import {TILE_SIZE, MAP_HEIGHT, MAP_WIDTH} from '../../config/constants'
-
+//this function handles the random fights that appear on the map based on movemment input
 function randomFight() {
     const fightChance = Math.random() * 10;
     if (fightChance > 9) store.dispatch({
@@ -11,6 +11,7 @@ function randomFight() {
     })
 }
 
+//these function will allow the player to understand what can and can't be move through
 function respectBoundaries(oldPos, newPos) {
     return newPos[0] >= 0 &&
         newPos[0] <= MAP_WIDTH - TILE_SIZE &&
@@ -26,7 +27,7 @@ function respectObstructions(oldPos, newPos) {
 }
 
 
-
+//these next few function will allow the player to move, but animating the sprite image by frame, and keeping track of the players position using cardinal directions
 function attemptMove(oldPos, newPos) {
     let canMove = respectBoundaries(oldPos, newPos);
     if (canMove)
@@ -83,6 +84,7 @@ function getSpriteLocation(direction) {
             return true;
     }
 }
+//these are my dispatch function that take in my previous function made to handle the movement when dispatdhed
 
 function handleDirectionMove(e, direction) {
     const state = store.getState();

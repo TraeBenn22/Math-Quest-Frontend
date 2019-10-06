@@ -1,3 +1,6 @@
+// individual stats for all of ym mobs
+
+
 const mobs = [
     {
         health: 5,

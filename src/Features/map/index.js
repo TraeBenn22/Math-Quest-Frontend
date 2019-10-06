@@ -2,6 +2,8 @@ import React from 'react';
 import {TILE_SIZE} from '../../config/constants';
 import './styles.css';
 
+//This file creates my basic information for my map display
+
 function getTileDisplay(type) {
     switch (type) {
         case 4:
@@ -16,7 +18,7 @@ function getTileDisplay(type) {
             return 'path';
     }
 }
-
+// creates my Map display using a map funciton to loop through the tiles and generate it.
 function Map(props) {
     return (
         <div style={{

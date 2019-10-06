@@ -4,6 +4,8 @@ import {playerCalc} from '../Features/Player/playerCalc'
 import playerData from "../Features/Player/playerCalc";
 import store from '../config/store';
 
+//WARNING- THESE FILES IN THIS DIRECTORY IS NOT COMPLETE
+
 
 
 function GameOver(props) {
