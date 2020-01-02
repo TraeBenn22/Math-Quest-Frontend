@@ -1,32 +1,32 @@
 import React from 'react';
-import {LoginContext} from './context';
+import { LoginContext } from './context';
 
 
-const If = props => {
-    return !!props.condition ? props.children : null;
+const If = (props) => {
+  return props.condition ? props.children : null;
 };
 
 class Login extends React.Component {
     static contextType = LoginContext;
 
     constructor(props) {
-        super(props);
-        this.state = {username: '', password: ''};
+      super(props);
+      this.state = { username: '', password: '' };
     }
 
     handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+      this.setState({ [e.target.name]: e.target.value });
     };
 
     handleSubmit = (e, type) => {
-        console.log(e, type);
-        e.preventDefault();
-        this.context.login(this.state.username, this.state.password, type);
+      console.log(e, type);
+      e.preventDefault();
+      this.context.login(this.state.username, this.state.password, type);
     };
 
     render() {
-        return (
-            <>
+      return (
+        <>
                 <If condition={this.context.loggedIn}>
                     <button onClick={this.context.logout}>Log Out</button>
                 </If>
@@ -51,8 +51,8 @@ class Login extends React.Component {
                         <button className={'login'} onClick={(e) => this.handleSubmit(e, 'signup')}>Sign Up</button>
                     </form>
                 </If>
-            </>
-        );
+        </>
+      );
     }
 }
 
